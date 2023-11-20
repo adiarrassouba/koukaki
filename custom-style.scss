@@ -1,0 +1,463 @@
+// ANIMATION FADEIN
+section {
+
+    &.banner,
+    &.story,
+    &#studio,
+    &#oscars {
+        animation: fadeIn ease 3s;
+    }
+}
+
+footer {
+    animation: fadeIn ease 3s;
+}
+
+//   keyframe pour l'effet fadeIn
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        // transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(400px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+//ROTATION FLEUR
+.story {
+    &__article {
+        &::after {
+            animation: turn 4s infinite linear
+        }
+    }
+}
+
+.story {
+    h2 {
+        &::after {
+            animation: turn 4s infinite linear
+        }
+    }
+}
+
+#studio {
+    h2 {
+
+        &::before,
+        &::after {
+            animation: turn 4s infinite linear
+        }
+        span {
+            display:inline-block
+        }
+    }
+}
+
+.site-footer {
+
+    &::before,
+    &::after,
+    ul::after {
+        animation: turn 4s infinite linear
+    }
+
+}
+
+//  keyframe pour l'effet rotation
+@keyframes turn {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+
+// style pour centrer le template partielle
+section {
+    &#oscars div {
+        display: flex;
+        justify-content: space-between;
+        width: 66.66%;
+        margin: auto;
+    }
+}
+
+
+// ANIMATION SWIPE UP
+
+//keyframe pour translate de bas vers le haut
+@keyframes swipeUp {
+    0% {
+        transform: translate(0, 90px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes swipeUp2 {
+    0% { 
+         transform: translate(0, 90px);
+         opacity: 0;
+    }
+    50% {   transform: translate( 0,90px);
+            opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+
+.swipeUp-animation {
+    animation: swipeUp 3s 1;
+}
+.swipup-animation2 { animation: swipeUp2 3s 1;}
+
+// background video 
+#background-video {
+    min-height: 806px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.banner {
+    position: relative;
+    img {
+        //mettre le titre au dessus de la video
+        z-index: 2;
+        //animation float
+        animation: float 6s ease-in-out infinite;
+    }
+}
+
+//en mode telephone: faire disparaitre la video (l'image background prend la place)
+@media (max-width: 750px) {
+    #background-video {
+        display: none;
+    }
+}
+
+
+
+//animation effet de flottement pour le titre header
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-40px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+
+// Style swiper 
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+//style des nuages
+.story #place {
+    background-image: url(./assets/images/Studio_Koukaki-image_place.png);
+    position: relative;
+
+    #big_cloud {
+        width: 220px;
+        height: 90px;
+        position: absolute;
+        right: 100px;
+        top: 90px;
+        filter: blur(10px); //style pour flouter
+    }
+
+    #little_cloud {
+        width: 120px;
+        height: 40px;
+        position: absolute;
+        right: 430px;
+        top: 250px;
+        filter: blur(10px); //style pour flouter
+    }
+
+}
+
+
+//STYLE MENU BURGER 
+
+// retirer le menu pour Phone
+//repris de _navigation.scss @media screen and (min-width: #{$breakpoint__large_phone})
+.menu-toggle {
+    display: none;
+}
+
+.main-navigation {
+    height: 80px;
+
+    ul {
+        display: flex;
+        margin: 0;
+        padding-left: 0;
+
+        .site-title {
+            display: block;
+        }
+    }
+}
+
+
+#burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    overflow: visible;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+
+    // THE LINES
+    span,
+    span:before,
+    span:after {
+        background: #fff;
+        display: block;
+        height: 2px;
+        opacity: 1;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+    }
+
+    span:before,
+    span:after {
+        content: '';
+    }
+
+    // TOP
+    span:before {
+        left: 0px;
+        top: -10px;
+        width: 27px;
+    }
+
+    // MIDDLE
+    span {
+        right: 0px;
+        top: 13px;
+        width: 27px;
+    }
+
+    // BOTTOM
+    span:after {
+        left: 0px;
+        top: 10px;
+        width: 27px;
+    }
+
+    ROTATION ON CLICK
+    &.close {
+
+        // TOP
+        span:before {
+            top: 0px;
+            transform: rotate(90deg);
+            width: 27px;
+        }
+
+        // MIDDLE
+        span {
+            transform: rotate(-45deg);
+            top: 13px;
+            width: 27px;
+        }
+
+        // BOTTOM
+        span:after {
+            top: 0px;
+            left: 0;
+            transform: rotate(90deg);
+            opacity: 0;
+            width: 0;
+        }
+    }
+}
+
+// rendre fixe la barre de menu
+.main-navigation {
+    position: fixed;
+}
+
+// une div permettant de imiter la taille du menu pour les elements en dessous 
+.separator {
+    height: 80px;
+}
+
+#menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 80px;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+
+    &.overlay {
+        visibility: visible;
+        opacity: 1;
+        background: #FFF5E9;
+    }
+
+    ul {
+        padding: 0;
+        // flex-direction: column;
+        display: block;
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #000000;
+        display: block;
+        font-size: 32px;
+        text-decoration: none;
+
+        &:hover {
+            text-shadow: 0px 0px 14px #FF5C00;
+        }
+    }
+}
+
+
+
+/* STYLE des éléments visuels du menu burger: positionnement */
+.logo_burger:hover {
+    filter: drop-shadow(0px 0px 26.0937px rgba(255, 92, 0, 0.6));
+}
+
+.orchid_burger {
+    position: absolute;
+    left: -55px;
+    top: 36px;
+    animation: turn 12s linear infinite;
+}
+
+
+.marguerite_burger {
+    position: absolute;
+    top: 75px;
+    right: 200px;
+    animation: turn 12s linear infinite;
+}
+
+.flower_purple {
+    position: absolute;
+    top: 180px;
+    right: 0;
+}
+
+.small_flower {
+    position: absolute;
+    top: 250px;
+    left: 200px;
+    animation: turn 12s linear infinite;
+              }
+
+.chat_bleu_burger {
+    position: absolute;
+    left: 360px;
+    top: 110px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+
+.chat_gris_burger {
+    position: absolute;
+    top: 250px;
+    right: 250px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+
+.chat_roux_burger {
+    position: absolute;
+    top: 620px;
+    left: 130px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+
+.hibiscus {
+    position: absolute;
+    bottom: 0;
+    right: -90px;
+    animation: turn 12s linear infinite;
+}
+
+/* ajout de l'effet de flottement des chats */
+
+@keyframes floatCat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// retirer les images ds le menu pour mobile
+@media screen and (max-width: 750px) {
+
+    .orchid_burger,
+    .chat_bleu_burger,
+    .marguerite_burger,
+    .flower_purple,
+    .small_flower,
+    .chat_gris_burger,
+    .chat_roux_burger,
+    .hibiscus {
+        display: none;
+    }
+}

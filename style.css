@@ -1,0 +1,331 @@
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+ .banner, .story, #studio, #oscars {
+    animation: fadeIn ease 3s;
+}
+footer {
+    animation: fadeIn ease 3s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+   }
+    50% {
+        opacity: 0;
+        transform: translateY(400px);
+   }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+   }
+}
+.story__article::after {
+    animation: turn 4s infinite linear;
+}
+.story h2::after {
+    animation: turn 4s infinite linear;
+}
+#studio h2::before, #studio h2::after {
+    animation: turn 4s infinite linear;
+}
+#studio h2 span {
+    display: inline-block;
+}
+.site-footer::before, .site-footer::after, .site-footer ul::after {
+    animation: turn 4s infinite linear;
+}
+@keyframes turn {
+    0% {
+        transform: rotate(0deg);
+   }
+    100% {
+        transform: rotate(360deg);
+   }
+}
+section#oscars div {
+    display: flex;
+    justify-content: space-between;
+    width: 66.66%;
+    margin: auto;
+}
+@keyframes swipeUp {
+    0% {
+        transform: translate(0, 90px);
+   }
+    100% {
+        transform: translate(0px, 0px);
+   }
+}
+@keyframes swipeUp2 {
+    0% {
+        transform: translate(0, 90px);
+        opacity: 0;
+   }
+    50% {
+        transform: translate(0, 90px);
+        opacity: 0;
+   }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+   }
+}
+.swipeUp-animation {
+    animation: swipeUp 3s 1;
+}
+.swipup-animation2 {
+    animation: swipeUp2 3s 1;
+}
+#background-video {
+    min-height: 806px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.banner {
+    position: relative;
+}
+.banner img {
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+@media (max-width: 750px) {
+    #background-video {
+        display: none;
+   }
+}
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+   }
+    50% {
+        transform: translatey(-40px);
+   }
+    100% {
+        transform: translatey(0px);
+   }
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+.swiper .swiper-slide img {
+    display: block;
+    width: 100%;
+}
+.story #place {
+    background-image: url(./assets/images/Studio_Koukaki-image_place.png);
+    position: relative;
+}
+.story #place #big_cloud {
+    width: 220px;
+    height: 90px;
+    position: absolute;
+    right: 100px;
+    top: 90px;
+    filter: blur(10px);
+}
+.story #place #little_cloud {
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    right: 430px;
+    top: 250px;
+    filter: blur(10px);
+}
+.menu-toggle {
+    display: none;
+}
+.main-navigation {
+    height: 80px;
+}
+.main-navigation ul {
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+}
+.main-navigation ul .site-title {
+    display: block;
+}
+#burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    overflow: visible;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+#burger-menu span, #burger-menu span:before, #burger-menu span:after {
+    background: #fff;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+#burger-menu span:before, #burger-menu span:after {
+    content: '';
+}
+#burger-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 27px;
+}
+#burger-menu span {
+    right: 0px;
+    top: 13px;
+    width: 27px;
+}
+#burger-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 27px;
+}
+ROTATION ON CLICK #burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+}
+ROTATION ON CLICK #burger-menu.close span {
+    transform: rotate(-45deg);
+    top: 13px;
+    width: 27px;
+}
+ROTATION ON CLICK #burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+}
+.main-navigation {
+    position: fixed;
+}
+.separator {
+    height: 80px;
+}
+#menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 80px;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+#menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    background: #fff5e9;
+}
+#menu ul {
+    padding: 0;
+    display: block;
+}
+#menu li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+#menu a {
+    color: #000;
+    display: block;
+    font-size: 32px;
+    text-decoration: none;
+}
+#menu a:hover {
+    text-shadow: 0px 0px 14px #ff5c00;
+}
+/* STYLE des éléments visuels du menu burger: positionnement */
+.logo_burger:hover {
+    filter: drop-shadow(0px 0px 26.0937px rgba(255, 92, 0, 0.6));
+}
+.orchid_burger {
+    position: absolute;
+    left: -55px;
+    top: 36px;
+    animation: turn 12s linear infinite;
+}
+.marguerite_burger {
+    position: absolute;
+    top: 75px;
+    right: 200px;
+    animation: turn 12s linear infinite;
+}
+.flower_purple {
+    position: absolute;
+    top: 180px;
+    right: 0;
+}
+.small_flower {
+    position: absolute;
+    top: 250px;
+    left: 200px;
+    animation: turn 12s linear infinite;
+}
+.chat_bleu_burger {
+    position: absolute;
+    left: 360px;
+    top: 110px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+.chat_gris_burger {
+    position: absolute;
+    top: 250px;
+    right: 250px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+.chat_roux_burger {
+    position: absolute;
+    top: 620px;
+    left: 130px;
+    animation: floatCat 6s ease-in-out 0s infinite;
+}
+.hibiscus {
+    position: absolute;
+    bottom: 0;
+    right: -90px;
+    animation: turn 12s linear infinite;
+}
+/* ajout de l'effet de flottement des chats */
+@keyframes floatCat {
+    0% {
+        transform: translateY(0);
+   }
+    50% {
+        transform: translateY(-15px);
+   }
+    100% {
+        transform: translateY(0);
+   }
+}
+@media screen and (max-width: 750px) {
+    .orchid_burger, .chat_bleu_burger, .marguerite_burger, .flower_purple, .small_flower, .chat_gris_burger, .chat_roux_burger, .hibiscus {
+        display: none;
+   }
+}
+
+
+
+ 
